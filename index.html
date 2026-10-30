@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Reto Extremo · 4 días de contenido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#FFFFFF;
+  --crema2:#F5F0EE;
+  --vino:#3E0111;
+  --vino2:#5c0a1c;
+  --dorado:#3E0111;
+  --dorado2:#5c0a1e;
+  --ink-soft:#6b5a52;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--crema);
+  color:var(--vino);
+  min-height:100vh;
+  padding-bottom:48px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:520px;margin:0 auto;padding:0 20px;}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:44px 20px 28px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"reto";
+  position:absolute;
+  top:6px;right:-8px;
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:92px;
+  color:rgba(62,1,17,.06);
+  pointer-events:none;
+}
+.vip{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:4px;
+  font-weight:700;
+  color:var(--dorado2);
+  border:1px solid var(--dorado);
+  border-radius:999px;
+  padding:6px 16px;
+  margin-bottom:18px;
+  background:rgba(62,1,17,.05);
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-weight:800;
+  font-size:44px;
+  line-height:1.05;
+  color:var(--vino);
+  margin-bottom:10px;
+}
+.hero h1 em{font-style:italic;color:var(--dorado2);}
+.hero .sub{
+  font-size:16px;
+  color:var(--ink-soft);
+  font-weight:500;
+}
+
+/* ===== REGLA ===== */
+.regla{
+  background:var(--vino);
+  color:var(--crema);
+  border-radius:18px;
+  padding:22px 20px;
+  margin:6px 0 24px;
+  box-shadow:0 10px 28px rgba(62,1,17,.25);
+  position:relative;
+}
+.regla::before{
+  content:"“";
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  line-height:1;
+  color:rgba(246,240,227,.45);
+  position:absolute;
+  top:8px;left:16px;
+  opacity:.9;
+}
+.regla .lbl{
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+  color:#F6F0E3;
+  margin-bottom:10px;
+  padding-left:34px;
+}
+.regla p{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:17px;
+  line-height:1.55;
+  padding-left:34px;
+}
+
+/* ===== PROGRESO ===== */
+.prog{margin-bottom:26px;}
+.prog .top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:8px;
+}
+.prog .top b{font-size:15px;}
+.prog .top span{font-size:13px;color:var(--ink-soft);font-weight:600;}
+.bar{
+  height:12px;
+  background:var(--crema2);
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(62,1,17,.12);
+}
+.bar i{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--vino),var(--vino2));
+  border-radius:8px;
+  transition:width .5s ease;
+}
+
+/* ===== TARJETAS DE DÍA ===== */
+.dia{
+  background:#fff;
+  border:1px solid rgba(62,1,17,.12);
+  border-radius:20px;
+  padding:24px 20px;
+  margin-bottom:18px;
+  box-shadow:0 6px 20px rgba(62,1,17,.07);
+  position:relative;
+  transition:opacity .3s, transform .3s;
+}
+.dia .num{
+  font-family:'Playfair Display',serif;
+  font-weight:800;
+  font-size:40px;
+  line-height:1;
+  color:var(--vino);
+  margin-bottom:2px;
+}
+.dia .num::after{
+  content:"";
+  display:block;
+  width:52px;height:3px;
+  background:var(--dorado);
+  border-radius:2px;
+  margin-top:8px;
+}
+.dia h2{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:22px;
+  margin:12px 0 10px;
+  color:var(--vino);
+}
+.dia .guia{
+  font-size:14.5px;
+  line-height:1.65;
+  color:#4a3a34;
+  margin-bottom:14px;
+}
+.dia .tarea{
+  background:rgba(62,1,17,.06);
+  border-left:3px solid var(--dorado);
+  border-radius:0 12px 12px 0;
+  padding:12px 14px;
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+  color:var(--vino);
+}
+.dia .tarea small{
+  display:block;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+  color:var(--dorado2);
+  margin-bottom:4px;
+}
+.btn{
+  display:block;width:100%;
+  border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;
+  font-size:15px;font-weight:700;
+  padding:14px;border-radius:14px;
+  transition:transform .15s, background .2s;
+}
+.btn:active{transform:scale(.98);}
+.btn-hacer{
+  background:var(--vino);
+  color:var(--crema);
+}
+.btn-hacer:hover{background:var(--vino2);}
+.dia.done{opacity:.62;}
+.dia.locked{
+  background:rgba(62,1,17,.045);
+  border-style:dashed;
+  text-align:center;
+  padding:28px 20px;
+}
+.dia.locked .num{color:rgba(62,1,17,.35);}
+.dia.locked .num::after{margin-left:auto;margin-right:auto;background:rgba(62,1,17,.2);}
+.dia.locked .candado{font-size:34px;margin-bottom:6px;}
+.dia.locked p{font-size:13px;color:var(--ink-soft);font-style:italic;margin:8px 0 0;}
+.dia.done .num{color:var(--dorado2);}
+.dia.done .check-badge{
+  position:absolute;
+  top:18px;right:18px;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--dorado);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  box-shadow:0 4px 12px rgba(62,1,17,.35);
+}
+.reflexion{margin-top:14px;}
+.reflexion label{display:block;font-size:13px;font-weight:700;color:#3E0111;margin-bottom:6px;}
+.reflexion textarea{width:100%;min-height:84px;resize:vertical;border:1.5px solid rgba(62,1,17,.22);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.55;font-family:inherit;background:#fffdf8;color:#2b2b2b;box-sizing:border-box;}
+.reflexion textarea:focus{outline:none;border-color:#3E0111;box-shadow:0 0 0 3px rgba(62,1,17,.12);}
+.guardado{font-size:11px;color:#5c0a1e;margin-top:4px;min-height:15px;}
+.diario{margin:28px 0 6px;}
+.diario h2{font-family:'Playfair Display',serif;color:#3E0111;font-size:24px;margin-bottom:4px;}
+.diario-sub{font-size:13px;color:#6b5a4a;margin-bottom:14px;}
+.entrada{background:#fff;border:1px solid rgba(62,1,17,.12);border-radius:14px;padding:14px 16px;margin-bottom:10px;}
+.entrada-dia{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c0a1e;margin-bottom:6px;}
+.entrada p{font-size:14px;line-height:1.6;color:#2b2b2b;white-space:pre-wrap;margin:0;}
+.mensaje-inicio{
+  margin:10px 0 2px;
+  padding:12px 14px;
+  background:#F5F0EE;
+  border-left:3px solid #3E0111;
+  border-radius:0 12px 12px 0;
+  font-size:14px;
+  line-height:1.55;
+  font-style:italic;
+  color:#3E0111;
+}
+.mensaje-inicio b{color:#5c0a1e;font-style:normal;}
+.mensaje-mot{
+  margin-top:12px;
+  background:linear-gradient(135deg,#3E0111,#5c0a1e);
+  color:#F6F0E3;
+  border-radius:14px;
+  padding:14px 16px;
+  font-size:14px;
+  line-height:1.5;
+  border:1px solid rgba(246,240,227,.35);
+}
+.mensaje-mot b{color:#F6F0E3;}
+.btn-deshacer{
+  background:transparent;
+  color:var(--ink-soft);
+  border:1px solid rgba(62,1,17,.25);
+  font-size:13px;
+  padding:10px;
+}
+
+/* ===== CELEBRACIÓN ===== */
+.celebra{
+  display:none;
+  text-align:center;
+  background:linear-gradient(135deg,var(--vino),var(--vino2));
+  color:var(--crema);
+  border-radius:20px;
+  padding:30px 22px;
+  margin:6px 0 22px;
+  box-shadow:0 12px 32px rgba(62,1,17,.3);
+}
+.celebra.show{display:block;animation:pop .5s ease;}
+@keyframes pop{from{transform:scale(.94);opacity:0;}to{transform:scale(1);opacity:1;}}
+.celebra .trofeo{font-size:46px;margin-bottom:8px;}
+.celebra h2{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  margin-bottom:8px;
+  color:#F6F0E3;
+}
+.celebra p{font-size:14.5px;line-height:1.6;color:rgba(246,240,227,.9);}
+
+/* ===== WHATSAPP ===== */
+.wa-sec{margin:26px 0 8px;text-align:center;}
+.wa-sec p{font-size:13.5px;color:var(--ink-soft);margin-bottom:12px;line-height:1.55;}
+.btn-wa{
+  background:#1faa53;
+  color:#fff;
+  font-size:16px;
+  padding:16px;
+  border-radius:16px;
+  box-shadow:0 8px 22px rgba(31,170,83,.35);
+}
+.btn-wa:hover{background:#178a43;}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  margin-top:34px;
+  font-size:12px;
+  color:var(--ink-soft);
+  letter-spacing:.5px;
+}
+footer b{color:var(--vino);}
+/* ===== ACCESO ===== */
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(120% 90% at 50% 0%, #fffdf6 0%, var(--crema) 55%, var(--crema2) 100%);}
+.gate-card{background:#fff;border:1px solid rgba(62,1,17,.14);border-radius:24px;
+  padding:36px 28px;max-width:380px;width:100%;text-align:center;
+  box-shadow:0 18px 50px rgba(62,1,17,.14);}
+.gate-card .vip{display:inline-block;font-size:11px;letter-spacing:3px;font-weight:700;color:var(--dorado2);
+  border:1px solid var(--dorado);border-radius:999px;padding:5px 14px;margin-bottom:14px;}
+.gate-card h1{font-family:'Playfair Display',serif;font-size:30px;color:var(--vino);margin-bottom:8px;}
+.gate-card p{font-size:14px;color:var(--ink-soft);margin-bottom:20px;line-height:1.55;}
+.gate-card input{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(62,1,17,.2);
+  font-size:17px;text-align:center;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--vino);
+  background:var(--crema);margin-bottom:12px;outline:none;}
+.gate-card input:focus{border-color:var(--dorado);}
+.gate-err{color:#b3261e;font-size:13px;min-height:20px;margin-top:10px;}
+#app{display:none;}
+</style>
+</head>
+<body>
+
+<!-- ===== ACCESO ===== -->
+<div id="gate">
+  <div class="gate-card">
+    <span class="vip">VIP</span>
+    <h1>Reto Extremo</h1>
+    <p>Zona privada del reto.<br>Solo para las 8 elegidas.<br>Ingresa tu código personal.</p>
+    <input id="gateInput" type="text" placeholder="CÓDIGO" autocomplete="off">
+    <button class="btn btn-hacer" style="width:100%" onclick="tryGate()">Entrar</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
+
+<div id="app">
+<div class="wrap">
+
+  <header class="hero">
+    <span class="vip">VIP</span>
+    <h1>Reto <em>Extremo</em></h1>
+    <p class="sub">4 días de contenido · Solo para las 8 elegidas</p>
+  </header>
+
+  <section class="regla">
+    <div class="lbl">LA REGLA DEL RETO</div>
+    <p>Este reto no premia el video más bonito: premia el compromiso. Son 4 días seguidos, sin saltarte ninguno. Tú dijiste «YO» — y esa palabra vale.</p>
+    <p style="margin-top:12px">⏰ Cada día tienes hasta las <b>9:00 PM</b> para publicar tu video (de 45 segundos a 1 minuto) y marcarlo aquí. La que no cumple un día, queda fuera del premio.</p>
+  </section>
+
+  <section class="prog">
+    <div class="top"><b>Tu progreso, reina 👑</b><span id="progTxt">0 de 4 días</span></div>
+    <div class="bar"><i id="progBar"></i></div>
+  </section>
+
+  <main id="dias"></main>
+
+  <section class="celebra" id="celebra">
+    <div class="trofeo">🏆</div>
+    <h2>¡Lo lograste, reina!</h2>
+    <p>Completaste los 4 días del Reto Extremo. Lo prometiste y lo cumpliste. Ahora viene tu premio: el análisis completo de tu Instagram y tu plan de contenido para 15 días. 👑</p>
+  </section>
+
+  <section class="diario" id="diarioSec" style="display:none">
+    <h2>\uD83D\uDCDD Mi diario del reto</h2>
+    <p class="diario-sub">Tus palabras de cada d\u00EDa, guardadas aqu\u00ED. Al final del reto vuelve a leerlas y mira todo lo que avanzaste, reina.</p>
+    <div id="diarioList"></div>
+  </section>
+
+  <section class="wa-sec">
+    <p>¿Terminaste un día? Mándale tu progreso a Johanna por WhatsApp y celebra con ella cada paso.</p>
+    <button class="btn btn-wa" onclick="sendProgress()">Enviar mi progreso a Johanna 💬</button>
+  </section>
+
+  <footer>
+    <b>@estoesjohana</b> · www.entrenosotrasmujer.com
+  </footer>
+
+</div>
+
+<script>
+var DIAS = [
+  {
+    n: 1,
+    titulo: "Rompe el mito",
+    guia: "Piensa en el mito que m\u00e1s se repite en tu rubro: eso que todas creen y que t\u00fa sabes que no es verdad. Empieza tu video diciendo \u00abTe han dicho que\u2026\u00bb y destr\u00fayelo con tu verdad y tu experiencia. Sin miedo: hablar con autoridad es lo que te separa de las que solo publican por publicar.",
+    tarea: "Graba un video de 45 segundos a 1 minuto rompiendo el mito de tu rubro y publ\u00edcalo.",
+    mensaje: "Primer d\u00eda adentro. Dijiste tu verdad frente a todas: as\u00ed se empieza una marca que vende. \uD83D\uDC51",
+    mensaje_inicio: "Reina, hoy se habla con autoridad. Nadie construye una marca escondiendo lo que sabe: sal y dilo t\u00fa primero. \u2764\uFE0F"
+  },
+  {
+    n: 2,
+    titulo: "El error que me ense\u00f1\u00f3",
+    guia: "Cuenta el error que m\u00e1s te cost\u00f3 en tu negocio \u2014 en dinero, en tiempo o en una clienta \u2014 sin pena y sin esconder nada. Y cierra con la lecci\u00f3n que te dej\u00f3. Las que solo muestran \u00e9xitos no generan confianza; las que cuentan la verdad, s\u00ed.",
+    tarea: "Graba un video de 45 segundos a 1 minuto contando tu error y tu lecci\u00f3n, y publ\u00edcalo.",
+    mensaje: "Contaste lo que muchas esconden. Eso no es debilidad, reina: es credibilidad. D\u00eda 2 adentro.",
+    mensaje_inicio: "Hoy toca ser valiente: tu error no te resta, te respalda. Las expertas no nacen, se hacen levant\u00e1ndose."
+  },
+  {
+    n: 3,
+    titulo: "Sin cortes",
+    guia: "Hoy no hay edici\u00f3n que te salve: un solo video, una sola toma, sin cortes y sin repetir. Presenta tu producto o tu servicio como si estuvieras atendi\u00e9ndome en persona, mir\u00e1ndome a los ojos. Si te equivocas, sigues. As\u00ed se ve una mujer real vendiendo de verdad.",
+    tarea: "Graba tu video de 45 segundos a 1 minuto en una sola toma, sin editar, y publ\u00edcalo.",
+    mensaje: "Una sola toma y lo lograste. Cuando te muestras real, la gente conf\u00eda \u2014 y la confianza vende.",
+    mensaje_inicio: "Sin cortes, sin edici\u00f3n, sin esconderte. Hoy no busco perfecci\u00f3n: busco tu presencia real."
+  },
+  {
+    n: 4,
+    titulo: "La carta",
+    guia: "\u00daltimo d\u00eda. Hoy no le hablas a una multitud: le hablas a ELLA, a tu clienta so\u00f1ada, como si fuera un mensaje privado solo para ella. Dile lo que nadie le ha dicho, cu\u00e9ntale por qu\u00e9 haces lo que haces y cierra invit\u00e1ndola a escribirte por DM con una palabra clave que t\u00fa elijas.",
+    tarea: "Graba tu carta en video de 45 segundos a 1 minuto, con tu invitaci\u00f3n al DM, y publ\u00edcala.",
+    mensaje: "4 de 4. Lo prometiste y lo cumpliste, reina. Ahora espera tu an\u00e1lisis y tu plan de 15 d\u00edas: te lo ganaste. \uD83D\uDC51",
+    mensaje_inicio: "\u00daltimo d\u00eda. Hoy le hablas a una sola mujer: la que necesita exactamente lo que t\u00fa tienes. Haz que lo sienta."
+  }
+];
+
+var MYCODE = "";
+try { MYCODE = localStorage.getItem("retoextremo-code") || ""; } catch(e) {}
+var KEY = "retoextremo-v1-" + MYCODE;
+/* DESBLOQUEO POR FECHA: día 1 = viernes 30 oct 2026, un día nuevo cada mañana. */
+function unlockedByDate() {
+  var start = new Date(2026, 9, 30);
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var d = Math.floor((today - start) / 86400000) + 1;
+  return Math.max(0, Math.min(4, d));
+}
+var DESBLOQUEADOS = unlockedByDate();
+var done = {};
+try {
+  done = JSON.parse(localStorage.getItem(KEY) || "{}");
+} catch(e) { done = {}; }
+if (!done || typeof done !== "object" || Array.isArray(done)) done = {};
+
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e) {}
+}
+
+var NOTAS_KEY = "retoextremo-notas-v1-" + MYCODE;
+var notas = {};
+try {
+  notas = JSON.parse(localStorage.getItem(NOTAS_KEY) || "{}");
+} catch(e) { notas = {}; }
+if (!notas || typeof notas !== "object" || Array.isArray(notas)) notas = {};
+
+function saveNota(n, v) {
+  if (v.trim()) notas[n] = v; else delete notas[n];
+  try { localStorage.setItem(NOTAS_KEY, JSON.stringify(notas)); } catch(e) {}
+}
+function esc(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function notaInput(n, el) {
+  saveNota(n, el.value);
+  var s = document.getElementById("gsaved-" + n);
+  if (s) s.textContent = "Guardado \u2713";
+  renderDiario();
+}
+function renderDiario() {
+  var ids = Object.keys(notas).map(Number).sort(function(a,b){return a-b;})
+    .filter(function(n){ return notas[n] && notas[n].trim(); });
+  var sec = document.getElementById("diarioSec");
+  if (!ids.length) { sec.style.display = "none"; return; }
+  sec.style.display = "block";
+  var h = "";
+  ids.forEach(function(n) {
+    var d = DIAS[n-1];
+    if (!d) return;
+    h += '<div class="entrada"><div class="entrada-dia">D\u00EDa ' + n + ' \u00B7 ' + esc(d.titulo) + '</div><p>' + esc(notas[n]) + '</p></div>';
+  });
+  document.getElementById("diarioList").innerHTML = h;
+}
+
+function countDone() {
+  var c = 0;
+  for (var i = 1; i <= 4; i++) { if (done[i]) c++; }
+  return c;
+}
+
+function render() {
+  var box = document.getElementById("dias");
+  var html = "";
+  DIAS.forEach(function(d) {
+    if (d.n > DESBLOQUEADOS) {
+      html += '<article class="dia locked">';
+      html += '<div class="candado">🔒</div>';
+      html += '<div class="num">DÍA ' + d.n + "</div>";
+      html += "<p>Próximamente, reina…</p>";
+      html += "</article>";
+      return;
+    }
+    var isDone = !!done[d.n];
+    html += '<article class="dia' + (isDone ? " done" : "") + '">';
+    if (isDone) html += '<div class="check-badge">✓</div>';
+    html += '<div class="num">DÍA ' + d.n + "</div>";
+    html += "<h2>" + d.titulo + "</h2>";
+    html += '<div class="mensaje-inicio">\u2764\uFE0F <b>Mensaje de Johanna para hoy:</b><br>' + d.mensaje_inicio + "</div>";
+    html += '<p class="guia">' + d.guia + "</p>";
+    html += '<div class="tarea"><small>TU TAREA</small>' + d.tarea + "</div>";
+    if (isDone) {
+      html += '<div class="mensaje-mot">\u2764\uFE0F <b>Mensaje de Johanna:</b><br>' + d.mensaje + '</div>';
+      html += '<button class="btn btn-deshacer" onclick="toggle(' + d.n + ')">Desmarcar</button>';
+    } else {
+      html += '<button class="btn btn-hacer" onclick="toggle(' + d.n + ')">Ya lo hice ✅</button>';
+    }
+    html += '<div class="reflexion"><label>\u2764\uFE0F Mi momento de hoy</label><textarea oninput="notaInput(' + d.n + ',this)" placeholder="\u00BFQu\u00E9 signific\u00F3 el reto de hoy para ti? Escr\u00EDbelo aqu\u00ED, reina\u2026">' + esc(notas[d.n] || "") + '</textarea><div class="guardado" id="gsaved-' + d.n + '"></div></div>';
+    html += "</article>";
+  });
+  try { box.innerHTML = html; } catch(e) { if (window.console) console.warn("render:dias", e); }
+
+  try {
+    var c = countDone();
+    document.getElementById("progTxt").textContent = c + " de 4 días";
+    document.getElementById("progBar").style.width = (c / 4 * 100) + "%";
+    document.getElementById("celebra").classList.toggle("show", c === 4);
+  } catch(e) { if (window.console) console.warn("render:progreso", e); }
+  try { renderDiario(); } catch(e) { if (window.console) console.warn("render:diario", e); }
+}
+
+function toggle(n) {
+  done[n] = !done[n];
+  if (!done[n]) delete done[n];
+  save();
+  render();
+}
+
+function sendProgress() {
+  var c = countDone();
+  var lines = [];
+  DIAS.forEach(function(d) {
+    if (d.n > DESBLOQUEADOS) {
+      lines.push("🔒 Día " + d.n + ": Próximamente");
+    } else {
+      lines.push((done[d.n] ? "✅" : "⬜") + " Día " + d.n + ": " + d.titulo);
+    }
+  });
+  var msg = "Hola Johanna 👑 Soy del RETO EXTREMO y llevo " +
+    c + " de 4 días completados:\n\n" + lines.join("\n");
+  window.open("https://wa.me/19046293118?text=" + encodeURIComponent(msg), "_blank");
+}
+
+try { render(); } catch(e) { if (window.console) console.warn("render:init", e); }
+
+/* ===== ACCESO ===== */
+/* Códigos personales de las 8 elegidas — Johanna asigna uno a cada una. */
+var CODES = ["REINA1","REINA2","REINA3","REINA4","REINA5","REINA6","REINA7","REINA8"];
+var GATE_KEY = "retoextremo-gate-v1";
+function openApp() {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+function tryGate() {
+  var v = document.getElementById("gateInput").value.trim().toUpperCase();
+  if (CODES.indexOf(v) >= 0) {
+    try {
+      localStorage.setItem(GATE_KEY, "1");
+      localStorage.setItem("retoextremo-code", v);
+    } catch(e) {}
+    location.reload();
+    return;
+  } else {
+    document.getElementById("gateErr").textContent = "Código incorrecto, reina. Inténtalo de nuevo.";
+  }
+}
+document.getElementById("gateInput").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") tryGate();
+});
+try {
+  if (localStorage.getItem(GATE_KEY) === "1") openApp();
+} catch(e) {}
+</script>
+</div>
+</body>
+</html>
