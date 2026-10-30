@@ -405,7 +405,13 @@ var MYCODE = "";
 try { MYCODE = localStorage.getItem("retoextremo-code") || ""; } catch(e) {}
 var KEY = "retoextremo-v1-" + MYCODE;
 /* DESBLOQUEO POR FECHA: día 1 = viernes 30 oct 2026, un día nuevo cada mañana. */
-function unlockedByDate() { return 4; } /* Sin bloqueo por día (decisión de Johanna, 29 oct 2026): los 4 retos abiertos desde el inicio. */
+function unlockedByDate() {
+  var start = new Date(2026, 9, 30);
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var d = Math.floor((today - start) / 86400000) + 1;
+  return Math.max(0, Math.min(4, d));
+} /* Desbloqueo POR DÍA restaurado (decisión final de Johanna, 29 oct 2026, 9:38 PM): Día 1 se abre a la medianoche del vie 30 oct, uno nuevo cada mañana. */
 var DESBLOQUEADOS = unlockedByDate();
 var done = {};
 try {
