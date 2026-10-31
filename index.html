@@ -406,7 +406,7 @@ try { MYCODE = localStorage.getItem("retoextremo-code") || ""; } catch(e) {}
 var KEY = "retoextremo-v1-" + MYCODE;
 /* DESBLOQUEO POR FECHA: día 1 = viernes 30 oct 2026, un día nuevo cada mañana. */
 function unlockedByDate() {
-  var fechas = [new Date(2026, 9, 29), new Date(2026, 9, 31), new Date(2026, 10, 1), new Date(2026, 10, 2)];
+  var fechas = [new Date(2026, 9, 29), new Date(2026, 9, 30), new Date(2026, 10, 1), new Date(2026, 10, 2)];
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var u = 0;
