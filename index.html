@@ -404,15 +404,15 @@ var DIAS = [
 var MYCODE = "";
 try { MYCODE = localStorage.getItem("retoextremo-code") || ""; } catch(e) {}
 var KEY = "retoextremo-v1-" + MYCODE;
-/* DESBLOQUEO POR FECHA: día 1 = viernes 30 oct 2026, un día nuevo cada mañana. */
+/* DESBLOQUEO POR FECHA: día 1 desbloqueado el 19 nov 2026 por orden de Johanna; días 2-4 día por día (21, 22 y 23 nov). */
 function unlockedByDate() {
-  var fechas = [new Date(2026, 9, 29), new Date(2026, 9, 30), new Date(2026, 9, 31), new Date(2026, 10, 1)];
+  var fechas = [new Date(2026, 10, 19), new Date(2026, 10, 21), new Date(2026, 10, 22), new Date(2026, 10, 23)];
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var u = 0;
   for (var k = 0; k < fechas.length; k++) { if (today >= fechas[k]) u = k + 1; }
   return u;
-} /* Apertura (decisión de Johanna, 29 oct 2026, 9:46 PM): Día 1 ABIERTO desde la noche del 29 oct como regalo para que se preparen; Día 2 = sáb 31 oct, Día 3 = dom 1 nov, Día 4 = lun 2 nov. */
+} /* Apertura: Día 1 desbloqueado el 19 nov 2026 por orden de Johanna; Día 2 = sáb 21 nov, Día 3 = dom 22 nov, Día 4 = lun 23 nov 2026. */
 var DESBLOQUEADOS = unlockedByDate();
 var done = {};
 try {
