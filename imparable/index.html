@@ -432,9 +432,9 @@ var DIAS = [
 var MYCODE = "";
 try { MYCODE = localStorage.getItem("retoimparable-code") || ""; } catch(e) {}
 var KEY = "retoimparable-v1-" + MYCODE;
-/* DESBLOQUEO POR FECHA: Reto Imparable, días 1-4 = 24, 25, 26 y 27 nov 2026. */
+/* DESBLOQUEO POR FECHA: Reto Imparable, días 1-4 = 21, 21, 22 y 24 nov 2026 (Día 4 desbloqueado el 24 nov por orden de Johanna). */
 function unlockedByDate() {
-  var fechas = [new Date(2026, 10, 21), new Date(2026, 10, 21), new Date(2026, 10, 22), new Date(2026, 10, 27)];
+  var fechas = [new Date(2026, 10, 21), new Date(2026, 10, 21), new Date(2026, 10, 22), new Date(2026, 10, 24)];
   var now = new Date();
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var u = 0;
